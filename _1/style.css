@@ -2,6 +2,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: #24252a;
 }
 
@@ -47,15 +50,91 @@ header {
     color: #0088a9;
 }
 
+.menu {
+    display: none;
+}
+
 button {
     padding: 10px 25px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
 
 button:hover {
     background-color: rgba(0, 136, 169, 0.5);
+}
+
+@media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+        display: none;
+    }
+
+    .menu {
+        display: inherit;
+    }
+}
+
+/* Mobile Nav */
+
+.overlay {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+}
+
+.overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+    align-items: flex-end;
+    margin-right: 45px;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 24px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+
+.overlay__cta button {
+    padding: 15px 30px;
+    font-size: 24px;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #0088a9;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 45px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+
+    .overlay .close {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
